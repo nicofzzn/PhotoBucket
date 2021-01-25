@@ -27,3 +27,40 @@ code {
 img.dropdown-toggle:hover {
   box-shadow: 0 0 0.2rem 0.1rem rgb(107, 107, 107);
 }
+
+div.sidebar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  overflow: auto;
+  z-index: -100;
+  border-right: 1px solid lightgrey;
+  padding-top: 2rem;
+}
+
+.sidebar li {
+  list-style-type: none;
+  z-index: 100;
+  color: grey;
+}
+
+.sidebar li a {
+  color: inherit;
+}
+
+.sidebar li.active {
+  color: #3a3a3a;
+}
+
+.sidebar li.active {
+  background-color: white;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-left: 3px solid lightgrey;
+  transform: translate(1px, 0);
+}
+
+.sidebar li a:hover {
+  color: #3a3a3a;
+}

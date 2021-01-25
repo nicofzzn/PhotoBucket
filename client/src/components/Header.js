@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Nav, Navbar, Container, Image, Dropdown } from 'react-bootstrap'
 import { MdFingerprint } from 'react-icons/md'
+import { BiArrowFromLeft } from 'react-icons/bi'
 import { UserContext } from './App'
 
 const Header = () => {
@@ -48,6 +49,12 @@ const Header = () => {
                       className='nav-link'
                       href='/auth/logout'
                     >
+                      <BiArrowFromLeft
+                        style={{
+                          color: '#3a3a3a',
+                        }}
+                        size='1.5em'
+                      />{' '}
                       Logout
                     </a>
                   </Dropdown.Menu>

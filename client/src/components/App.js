@@ -8,6 +8,7 @@ import axios from 'axios'
 import PrivateRoute from './PrivateRoute'
 import Test from './Test'
 import Header from './Header'
+import Sidebar from './Sidebar'
 import Login from './Login'
 import Dashboard from './Dashboard'
 import NotFound from './NotFound'
@@ -52,6 +53,7 @@ const App = () => {
               <Route exact path='/Login' component={Login} />
               <Header path='/' />
             </Switch>
+            <Sidebar />
             <Switch>
               <PrivateRoute exact path='/' component={Dashboard} />
               <PrivateRoute exact path='/test' component={Test} />
