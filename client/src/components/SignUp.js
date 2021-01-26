@@ -13,12 +13,25 @@ const SignUp = () => {
     password: '',
     passwordConfirm: '',
   })
-  const [alert, setAlert] = useState()
+  const [alert, setAlert] = useState({ variant: '', message: '' })
   const [user] = useContext(UserContext)
 
-  const handleSignIn = e => {
+  const handleSignUn = e => {
     e.preventDefault()
-    console.log(signUpForm)
+    axios
+      .post('/api/user', signUpForm)
+      .then(res =>
+        setAlert({
+          variant: 'success',
+          message: res.data,
+        })
+      )
+      .catch(err =>
+        setAlert({
+          variant: 'danger',
+          message: err.response.data,
+        })
+      )
   }
 
   const onInputChange = e => {
@@ -50,15 +63,15 @@ const SignUp = () => {
                   </Card.Subtitle>
                 </Row>
                 <Form>
-                  {alert && (
+                  {alert.message && (
                     <Alert
                       style={{
                         border: 0,
                       }}
                       className='mb-0 p-2 pl-3'
-                      variant='danger'
+                      variant={alert.variant}
                     >
-                      {alert}
+                      {alert.message}
                     </Alert>
                   )}
                   <Form.Group>
@@ -67,7 +80,7 @@ const SignUp = () => {
                       placeholder='Name'
                       className='mt-2'
                       name='name'
-                      value={signUpForm.email}
+                      value={signUpForm.name}
                       onChange={onInputChange}
                     />
                     <Form.Control
@@ -113,7 +126,7 @@ const SignUp = () => {
                   <Button
                     variant='primary'
                     block
-                    onClick={e => handleSignIn(e)}
+                    onClick={e => handleSignUn(e)}
                   >
                     Sign In
                   </Button>

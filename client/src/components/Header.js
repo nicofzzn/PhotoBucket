@@ -49,7 +49,7 @@ const Header = () => {
                         roundedCircle
                       />
                     ) : (
-                      <Nav.Link href=''>{user.name}</Nav.Link>
+                      <Nav.Link id='nav-color'>{user.email}</Nav.Link>
                     )}
                   </Dropdown.Toggle>
                   <Dropdown.Menu className='mt-1'>

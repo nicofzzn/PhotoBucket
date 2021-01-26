@@ -25,21 +25,13 @@ require('./services/passport')
 
 // routes
 app.use('/', require('./routes/authRoutes'))
+app.use('/', require('./routes/userRoutes'))
+
 app.get('/error', (req, res) => {
   throw new Error('The error message')
 })
-app.post('/', (req, res) => {
-  res.json(req.user)
-})
 
-// error handler middleware
-app.use((error, req, res, next) => {
-  console.log(error)
-  res.json({
-    message: error.message,
-    stack: process.env.NODE_ENV === 'production' ? null : error.stack,
-  })
-})
+app.use(require('./middlewares/errorMiddleware'))
 
 const PORT = process.env.PORT || 5000
 

@@ -42,7 +42,7 @@ passport.use(
         if (!user) {
           return done(null, false, { message: 'Wrong email or password' })
         }
-        if (user.password !== password) {
+        if (!user.comparePassword) {
           return done(null, false, { message: 'Wrong email or password' })
         }
 

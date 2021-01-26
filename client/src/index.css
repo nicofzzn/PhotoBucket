@@ -70,7 +70,6 @@ img.dropdown-toggle:hover {
 .content {
   display: absolute;
   left: 220px;
-  background-color: red;
   width: calc(100% - 220px);
   position: absolute;
 }

@@ -33,16 +33,4 @@ router.get('/auth/logout', (req, res) => {
   res.redirect('/login')
 })
 
-router.get('/api/user', (req, res) => {
-  if (!req.user) {
-    return res.status(401).end()
-  }
-  res.json({
-    id: req.user.id,
-    name: req.user.name,
-    email: req.user.email,
-    photo: req.user.photo,
-  })
-})
-
 module.exports = router
