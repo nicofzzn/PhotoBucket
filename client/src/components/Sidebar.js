@@ -1,17 +1,21 @@
-import React from 'react'
+import { useContext } from 'react'
 import { BiImages, BiFolder } from 'react-icons/bi'
-import useWindowDimensions from '../hooks/useWindowDimensions'
+import { useLocation } from 'react-router-dom'
+import { UserContext } from './App'
 
 const Sidebar = () => {
-  const { height } = useWindowDimensions()
+  const location = useLocation()
+  const [user] = useContext(UserContext)
 
+  if (
+    location.pathname === '/login' ||
+    location.pathname === '/signup' ||
+    !user.id
+  ) {
+    return <></>
+  }
   return (
-    <div
-      className='sidebar bg-light'
-      style={{
-        height: height - 59,
-      }}
-    >
+    <div className='sidebar bg-light sm'>
       <li className='active nav-item'>
         <a className='nav-link ml-2' href='/'>
           <BiImages size='1.5rem' className='mr-3' /> All Photos
@@ -19,7 +23,7 @@ const Sidebar = () => {
       </li>
       <li className='nav-item'>
         <a className='nav-link ml-2' href='/'>
-          <BiFolder size='1.5rem' className='mr-3' /> Albums
+          <BiFolder size='1.5rem' className='mr-3' /> Folders
         </a>
       </li>
     </div>

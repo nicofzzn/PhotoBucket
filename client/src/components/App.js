@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
 import React, { useState, useEffect } from 'react'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container, Row, Spinner } from 'react-bootstrap'
@@ -10,6 +9,7 @@ import Test from './Test'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Login from './Login'
+import SignUp from './SignUp'
 import Dashboard from './Dashboard'
 import NotFound from './NotFound'
 
@@ -50,10 +50,13 @@ const App = () => {
         ) : (
           <>
             <Switch>
-              <Route exact path='/Login' component={Login} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/signUp' component={SignUp} />
               <Header path='/' />
             </Switch>
-            <Sidebar />
+            <Route path='/'>
+              <Sidebar />
+            </Route>
             <Switch>
               <PrivateRoute exact path='/' component={Dashboard} />
               <PrivateRoute exact path='/test' component={Test} />

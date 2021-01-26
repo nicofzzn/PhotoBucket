@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 const NotFound = () => {
   let location = useLocation()
 
-  if (location.pathname === '/login') {
+  if (location.pathname === '/login' || location.pathname === '/signup') {
     return <></>
   } else {
     return (
