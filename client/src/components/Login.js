@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault()
     axios
       .post('/auth/local', loginForm)
-      .then(res => (window.location = '/'))
+      .then(res => (window.location = '/dashboard'))
       .catch(err => setAlert(err.response.data.message))
   }
 

@@ -5,7 +5,6 @@ import axios from 'axios'
 
 // components
 import PrivateRoute from './PrivateRoute'
-import Test from './Test'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Login from './Login'
@@ -29,6 +28,10 @@ const App = () => {
           console.error(err)
         })
     })()
+
+    if (window.location.pathname === '/') {
+      window.location = '/dashboard'
+    }
   }, [])
 
   return (
@@ -36,7 +39,7 @@ const App = () => {
       <UserContext.Provider value={[user, setUser]}>
         {user.loading ? (
           <Container style={{ marginTop: '40vh', height: '100vh' }}>
-            <Row className='justify-content-md-center'>
+            <Row className='justify-content-center'>
               <Spinner
                 style={{ width: '4rem', height: '4rem' }}
                 animation='border'
@@ -54,12 +57,11 @@ const App = () => {
               <Route exact path='/signUp' component={SignUp} />
               <Header path='/' />
             </Switch>
-            <Route path='/'>
+            <Route path='/dashboard'>
               <Sidebar />
             </Route>
             <Switch>
-              <PrivateRoute exact path='/' component={Dashboard} />
-              <PrivateRoute exact path='/test' component={Test} />
+              <PrivateRoute path='/dashboard' component={Dashboard} />
               <Route path='*' component={NotFound} />
             </Switch>
           </>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Nav, Navbar, Container, Image, Dropdown } from 'react-bootstrap'
 import { MdFingerprint } from 'react-icons/md'
 import { UserContext } from './App'
-import { BiImages, BiFolder, BiArrowFromLeft, BiUpload } from 'react-icons/bi'
+import { Images, Folder, BoxArrowRight, Upload } from 'react-bootstrap-icons'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
 const Header = () => {
@@ -20,14 +20,6 @@ const Header = () => {
           <Nav className='ml-auto'>
             {user.id && (
               <>
-                <Nav.Link href='#link' id='nav-color'>
-                  <BiUpload
-                    style={{ marginBottom: '3px' }}
-                    className='mr-2'
-                    size='1.4rem'
-                  />
-                  Upload
-                </Nav.Link>
                 <Dropdown title={user.name} id='basic-nav-dropdown'>
                   <Dropdown.Toggle
                     variant='custom'
@@ -58,12 +50,13 @@ const Header = () => {
                       className='nav-link'
                       href='/auth/logout'
                     >
-                      <BiArrowFromLeft
+                      <BoxArrowRight
                         style={{
                           color: '#3a3a3a',
                         }}
-                        size='1.4rem'
-                      />{' '}
+                        className='mr-3'
+                        size='1.3rem'
+                      />
                       Logout
                     </a>
                   </Dropdown.Menu>
@@ -71,19 +64,19 @@ const Header = () => {
                 <Dropdown.Divider />
                 {width <= 575 && (
                   <>
-                    <Nav.Link href='#link' id='nav-color'>
-                      <BiImages
+                    <Nav.Link href='/dashboard' id='nav-color'>
+                      <Images
                         style={{ marginBottom: '3px' }}
                         className='mr-2'
-                        size='1.4rem'
+                        size='1.3rem'
                       />
                       All Photos
                     </Nav.Link>
-                    <Nav.Link href='#link' id='nav-color'>
-                      <BiFolder
+                    <Nav.Link href='/dashboard/folders' id='nav-color'>
+                      <Folder
                         style={{ marginBottom: '3px' }}
                         className='mr-2'
-                        size='1.4rem'
+                        size='1.3rem'
                       />
                       Folders
                     </Nav.Link>

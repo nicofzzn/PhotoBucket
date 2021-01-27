@@ -42,7 +42,8 @@ passport.use(
         if (!user) {
           return done(null, false, { message: 'Wrong email or password' })
         }
-        if (!user.comparePassword) {
+        const isPasswordMatch = await user.comparePassword(password)
+        if (!isPasswordMatch) {
           return done(null, false, { message: 'Wrong email or password' })
         }
 
