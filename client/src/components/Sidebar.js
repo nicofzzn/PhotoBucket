@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { BiImages, BiFolder } from 'react-icons/bi'
+import { Images, Folder2Open } from 'react-bootstrap-icons'
 import { useLocation } from 'react-router-dom'
 import { UserContext } from './App'
 
@@ -15,20 +15,25 @@ const Sidebar = () => {
     <div className='sidebar bg-light sm'>
       <li
         className={
-          pathname === '/dashboard/folders' ? 'nav-item' : 'nav-item active'
+          pathname === '/dashboard' || pathname === '/dashboard/'
+            ? 'nav-item active'
+            : 'nav-item '
         }
       >
         <Link className='nav-link ml-2' to='/dashboard'>
-          <BiImages size='1.5rem' className='mr-3' /> All Photos
+          <Images size='1.5rem' className='mr-3' /> All Photos
         </Link>
       </li>
       <li
         className={
-          pathname === '/dashboard/folders' ? 'nav-item active' : 'nav-item'
+          pathname === '/dashboard/folders' ||
+          pathname === '/dashboard/folders/'
+            ? 'nav-item active'
+            : 'nav-item'
         }
       >
         <Link className='nav-link ml-2' to='/dashboard/folders'>
-          <BiFolder size='1.5rem' className='mr-3' /> Folders
+          <Folder2Open size='1.5rem' className='mr-3' /> Folders
         </Link>
       </li>
     </div>

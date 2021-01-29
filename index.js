@@ -26,6 +26,7 @@ require('./services/passport')
 // routes
 app.use('/', require('./routes/authRoutes'))
 app.use('/', require('./routes/userRoutes'))
+app.use('/', require('./routes/photoRoutes'))
 
 app.get('/error', (req, res) => {
   throw new Error('The error message')

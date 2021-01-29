@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Nav, Navbar, Container, Image, Dropdown } from 'react-bootstrap'
 import { MdFingerprint } from 'react-icons/md'
 import { UserContext } from './App'
-import { Images, Folder, BoxArrowRight, Upload } from 'react-bootstrap-icons'
+import { Images, Folder, BoxArrowRight } from 'react-bootstrap-icons'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
 const Header = () => {

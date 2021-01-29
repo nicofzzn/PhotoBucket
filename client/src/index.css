@@ -89,11 +89,31 @@ img.dropdown-toggle:hover {
 .head {
   padding: 1.3rem 3rem 1rem 3rem;
   border-bottom: 1px solid lightgrey;
+  height: 62px;
 }
 
 .head a.right {
   text-decoration: none;
   float: right;
+  color: #3a3a3a;
+}
+
+.head button {
+  float: right;
+  padding: 2px 5px;
+  background-color: inherit;
+  border: 0;
+  color: #3a3a3a;
+}
+
+.head button:focus,
+.btn.btn-folder:focus {
+  box-shadow: 0 0 0 0;
+}
+
+.head button:hover,
+.btn.btn-folder:hover {
+  background-color: #ebebeb;
   color: #3a3a3a;
 }
 
@@ -105,6 +125,39 @@ img.dropdown-toggle:hover {
   font-weight: normal;
 }
 
+.modal-dialog {
+  max-width: 700px;
+}
+
+.dropzone {
+  height: 20vh;
+  border: 1px solid grey;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-body aside {
+  max-height: 25vh;
+  overflow-y: auto;
+}
+
+div.folder {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.folder button {
+  width: 120px;
+  height: 80px;
+}
+
+.folder button p {
+  white-space: nowrap;
+  height: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media only screen and (max-width: 710px) {
   .sidebar {
     display: none;
@@ -114,10 +167,6 @@ img.dropdown-toggle:hover {
     left: 0;
     width: 100%;
   }
-
-  /* .head {
-    padding: 1.5rem 3rem 0.5rem 3rem;
-  } */
 }
 
 @media only screen and (max-width: 575px) {
@@ -125,11 +174,11 @@ img.dropdown-toggle:hover {
     padding: 1.3rem 1rem 1rem 1rem;
   }
 
-  .head a span {
+  .head button span {
     display: none;
   }
 
-  .head a svg {
-    font-size: 1.5rem;
+  .head button svg {
+    font-size: 1.2rem;
   }
 }

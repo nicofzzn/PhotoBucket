@@ -13,7 +13,10 @@ const photoFolderSchema = new Schema({
   photos: [
     {
       url: String,
-      date: Date.now(),
+      uploadDate: {
+        type: Date,
+        default: Date.now(),
+      },
     },
   ],
 })

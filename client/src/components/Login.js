@@ -25,7 +25,7 @@ const Login = () => {
   }
 
   if (user.id) {
-    return <Redirect to='/' />
+    return <Redirect to='/dashboard' />
   } else {
     return (
       <Container>
