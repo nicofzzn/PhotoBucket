@@ -182,3 +182,13 @@ div.folder {
     font-size: 1.2rem;
   }
 }
+
+@media only screen and (max-width: 775px) {
+  .head button span {
+    display: none;
+  }
+
+  .head button svg {
+    font-size: 1.2rem;
+  }
+}

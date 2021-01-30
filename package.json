@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.834.0",
     "bcrypt": "^5.0.0",
     "cookie-session": "^1.4.0",
     "dotenv": "^8.2.0",
@@ -19,9 +20,12 @@
     "helmet": "^4.4.1",
     "mongoose": "^5.11.12",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
