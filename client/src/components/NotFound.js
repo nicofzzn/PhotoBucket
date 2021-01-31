@@ -14,8 +14,7 @@ const NotFound = () => {
         <Helmet>
           <title>Page not found | PhotoBucket</title>
         </Helmet>
-        <h1 className='font-weight-light'>{location.pathname}</h1>
-        <h3 className='font-weight-normal'>Page not found</h3>
+        <h3 className='font-weight-light'>Can't find {location.pathname}</h3>
       </Container>
     )
   }

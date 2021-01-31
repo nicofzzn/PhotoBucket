@@ -13,21 +13,26 @@ import Dashboard from './Dashboard'
 import NotFound from './NotFound'
 
 export const UserContext = React.createContext()
+export const FoldersContext = React.createContext()
 const App = () => {
   const [user, setUser] = useState({ loading: true })
+  const [folders, setFolders] = useState([])
 
   useEffect(() => {
-    ;(function () {
-      axios
-        .get('/api/user')
-        .then(res => {
-          setUser({ loading: false, ...res.data })
-        })
-        .catch(err => {
-          setUser({ loading: false })
-          console.error(err)
-        })
-    })()
+    axios
+      .get('/api/user')
+      .then(res => {
+        setUser({ loading: false, ...res.data })
+      })
+      .catch(err => {
+        setUser({ loading: false })
+        console.error(err)
+      })
+
+    axios
+      .get('/api/folders')
+      .then(res => setFolders(res.data))
+      .catch(err => console.error(err.message))
 
     if (window.location.pathname === '/') {
       window.location = '/dashboard'
@@ -61,7 +66,14 @@ const App = () => {
               <Sidebar />
             </Route>
             <Switch>
-              <PrivateRoute path='/dashboard' component={Dashboard} />
+              {/* <PrivateRoute path='/dashboard'>
+                <Dashboard folders={folders} setFolders={setFolders} />
+              </PrivateRoute> */}
+              <PrivateRoute
+                path='/dashboard'
+                childProps={{ folders, setFolders }}
+                component={Dashboard}
+              />
               <Route path='*' component={NotFound} />
             </Switch>
           </>

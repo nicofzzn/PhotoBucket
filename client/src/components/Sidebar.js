@@ -26,10 +26,7 @@ const Sidebar = () => {
       </li>
       <li
         className={
-          pathname === '/dashboard/folders' ||
-          pathname === '/dashboard/folders/'
-            ? 'nav-item active'
-            : 'nav-item'
+          pathname.search('folders') > 0 ? 'nav-item active' : 'nav-item'
         }
       >
         <Link className='nav-link ml-2' to='/dashboard/folders'>

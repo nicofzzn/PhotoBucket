@@ -37,7 +37,7 @@ const Login = () => {
             <Card className='p-3' bg='light'>
               <Card.Body>
                 <Row className='row justify-content-center'>
-                  <LinkContainer to='/' style={{ cursor: 'pointer' }}>
+                  <LinkContainer to='/dashboard' style={{ cursor: 'pointer' }}>
                     <h3 className='font-weight-normal'>
                       <MdFingerprint size='1.5em' /> PhotoBucket
                     </h3>

@@ -1,16 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Modal, Button, Form, Alert, ProgressBar } from 'react-bootstrap'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 
-const CreateFolderModal = ({
-  show,
-  handleClose,
-  getFolders,
-  setFolders,
-  folders,
-}) => {
+const CreateFolderModal = ({ show, handleClose, setFolders, folders }) => {
   const [files, setFiles] = useState([])
   const [onLoading, setOnLoading] = useState(false)
   const [uploadProgress, setUploadProgress] = useState(0)
@@ -28,10 +22,6 @@ const CreateFolderModal = ({
   const inputRef = useRef()
   const selectFolderRef = useRef()
   const history = useHistory()
-
-  useEffect(() => {
-    getFolders().then(res => setFolders(res.data))
-  }, [])
 
   const onUpload = async () => {
     setOnLoading(true)

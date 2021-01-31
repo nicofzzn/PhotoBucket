@@ -35,8 +35,12 @@ router.post('/api/folders', async (req, res) => {
 })
 
 router.get('/api/folders', async (req, res) => {
-  const folders = await PhotoFolder.find({ userId: req.user.id })
-  res.json(folders)
+  try {
+    const folders = await PhotoFolder.find({ userId: req.user.id })
+    res.json(folders)
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 const s3 = new S3({
